@@ -146,7 +146,7 @@ export function CompanionPage() {
 
   const filteredCompanions = useMemo(
     () => (filter === "liked" ? companions.filter((c) => likedIds.includes(c.id)) : companions),
-                          {companion.responseTime || "Typically replies in 24h"}
+    [filter, companions, likedIds]
   );
 
   const companionPalette = [
