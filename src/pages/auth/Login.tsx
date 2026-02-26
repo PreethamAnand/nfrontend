@@ -32,13 +32,14 @@ const Login: React.FC = () => {
       setLoading(true);
 
       // Backend login
-      const res = await fetch(`${BACKEND_CONFIG.API_BASE_URL}/api/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      const res = await fetch(
+  "https://backend-r5za.onrender.com/api/auth/login",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData),
+  }
+);
 
       const data = await res.json();
 
@@ -223,7 +224,13 @@ const Login: React.FC = () => {
         </motion.div>
 
         {/* Login Form */}
-        <div className="space-y-6">
+        <form
+          className="space-y-6"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin();
+          }}
+        >
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: -20 }}
@@ -267,8 +274,7 @@ const Login: React.FC = () => {
           </motion.div>
 
           <motion.button
-            type="button"
-            onClick={handleLogin}
+            type="submit"
             disabled={loading}
             className="w-full py-3 px-6 text-base font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all duration-300 relative overflow-hidden group bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-[0.98]"
             initial={{ opacity: 0, y: 10 }}
@@ -289,7 +295,7 @@ const Login: React.FC = () => {
               </>
             )}
           </motion.button>
-        </div>
+        </form>
 
         {/* Separator */}
         <motion.div

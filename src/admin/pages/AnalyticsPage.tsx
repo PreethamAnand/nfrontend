@@ -40,7 +40,7 @@ export function AnalyticsPage() {
     },
   });
 
-  const API_URL = "https://backend-r5za.onrender.com";
+  const API_URL = "http://localhost:5000";
 
   useEffect(() => {
     const fetchAnalytics = async () => {

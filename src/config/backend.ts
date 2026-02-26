@@ -1,12 +1,12 @@
 // Backend configuration
 export const BACKEND_CONFIG = {
   // Production backend URL
-  API_URL: 'https://backend-r5za.onrender.com',
-  SOCKET_URL: 'https://backend-r5za.onrender.com',
+  API_URL: 'https://nirvaha-backend.onrender.com',
+  SOCKET_URL: 'https://nirvaha-backend.onrender.com',
   
   // Local development URL (prioritized for development)
-  LOCAL_API_URL: 'https://backend-r5za.onrender.com',
-  LOCAL_SOCKET_URL: 'https://backend-r5za.onrender.com',
+  LOCAL_API_URL: 'http://localhost:5000',
+  LOCAL_SOCKET_URL: 'http://localhost:5000',
   
   // Check if we're in development mode
   IS_DEVELOPMENT: import.meta.env.DEV || 
